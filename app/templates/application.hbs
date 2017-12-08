@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div><button {{action 'open'}}>Open Video File</button> {{file}}</div>
 
-{{outlet}}
+{{#if file}}
+<p>Can Play check: {{if canPlay 'jup' 'nope'}}</p>
+
+<div>
+	{{#if canPlay}}
+	<video src="file://{{file}}" controls style="max-height: 300px;"></video>
+	{{/if}}
+</div>
+{{/if}}
